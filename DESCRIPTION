@@ -16,4 +16,7 @@ Depends:
 RoxygenNote: 6.1.1
 Imports: 
     dplyr (>= 0.4.2),
-    magrittr (>= 1.5)
+    magrittr (>= 1.5),
+    lmtest (>= 0.9-37),
+    sandwich (>= 2.5-1),
+    broom (>= 0.5.2)

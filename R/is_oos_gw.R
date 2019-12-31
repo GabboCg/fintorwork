@@ -2,7 +2,7 @@
 #'
 #' @import dplyr
 #' @import magrittr
-#' @importFrom stats lm na.omit coef
+#' @importFrom stats lm na.omit coef pchisq
 #'
 #' @param df tibble or dataframe with date, dependent variable and independent variable (variable)
 #' @param firstyear Size of the windows

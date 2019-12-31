@@ -12,7 +12,7 @@
 #'
 #' @return
 #' @export
-in_sample <- function (y, X, h) {
+in_sample <- function(y, X, h) {
 
   X_i_j <- as.matrix(X[1:(NROW(X) - h)])
   Y_i_j <- y[2:(NROW(y) - (h-1))]

@@ -5,7 +5,7 @@
 #'
 #' @return
 #' @export
-return_volatility <- function (x1, x2) {
+return_volatility <- function(x1, x2) {
 
   RVOL_mat <- matrix(NaN, nrow = NROW(x1) - 11, ncol = 1)
 

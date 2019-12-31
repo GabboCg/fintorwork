@@ -5,7 +5,7 @@
 #'
 #' @return
 #' @export
-return_cumulative <- function (x, h) {
+return_cumulative <- function(x, h) {
 
   r_h <- matrix(NaN, nrow = NROW(x), ncol = NROW(h))
 

@@ -33,7 +33,7 @@
 #' @export
 #'
 #' @examples
-qLL_hat <- function(y, X, Z, L){
+qLL_hat <- function(y, X, Z, L) {
 
   results <- lm(y ~ X + Z - 1)
   epsilon_hat <- results$resid

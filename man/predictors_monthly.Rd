@@ -3,13 +3,13 @@
 \docType{data}
 \name{predictors_monthly}
 \alias{predictors_monthly}
-\title{Food descriptions.}
+\title{Goyal & Welch (2008) monthly dataset}
 \format{A data frame with 8463 observations and 14 variables:}
 \usage{
 predictors_monthly
 }
 \description{
-Food descriptions.
+Goyal & Welch (2008) monthly dataset
 }
 \examples{
 predictors_monthly

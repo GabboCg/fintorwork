@@ -20,14 +20,14 @@ out_of_sample <- function(y, X, y_2, h, start, end, space, k){
 
   ols <- function(y,X){
 
-    betas <<- solve(t(X)%*%X)%*%(t(X)%*%y)
+    betas <- solve(t(X)%*%X)%*%(t(X)%*%y)
 
-    e <<- y - X%*%betas
+    e <- y - X%*%betas
     variance <- t(e)%*%e
     vcv <- 1/(NROW(X)-NCOL(X))*(as.numeric(variance)*solve(t(X)%*%X))
-    betastd <<- sqrt(diag(vcv))
+    betastd <- sqrt(diag(vcv))
 
-    regr <<- cbind(betas, as.matrix(betastd))
+    regr <- cbind(betas, as.matrix(betastd))
 
   }
 
@@ -52,15 +52,28 @@ out_of_sample <- function(y, X, y_2, h, start, end, space, k){
   R <- (end - start)*12 + k
   P_0 <-  ((end + space) - end)*12
   P <- T - (R + P_0)
+  window <- 12*10
 
   FC_hA <- matrix(0, nrow = (P_0 + P), ncol = 1)
   FC_ECON <- matrix(0, nrow = (P_0 + P), ncol = N)
   beta_ECON <- array(0, c((P_0 + P),N,2))
   FC_ECON_CT <- matrix(0, nrow = (P_0 + P), ncol = N)
+  FC_vol <- matrix(0, nrow = (P_0 + P), ncol = N)
 
   for(i in 1:(P_0+P)){
 
-    FC_hA[i] <-  mean(y_2[1:(R+(i-1)),])
+    # volatility
+    if(R+i-h <= window-1){
+
+      FC_vol[i] <- sd(y_2[1:(R+i-h),])
+
+    }else{
+
+      FC_vol[i] <- sd(y_2[((R+i-h)-(window-1)):(R+i-h),])
+
+    }
+
+    FC_hA[i] <- mean(y_2[1:(R+(i-1)),], na.rm = TRUE)
 
     X_t <- X[1:(R+(i-1)-h),]
     y_t <- y[2:(R+(i-h)),]
@@ -140,9 +153,12 @@ out_of_sample <- function(y, X, y_2, h, start, end, space, k){
            with_R2OS = "with.1",
            with_p_value = "with.2")
 
-  return(R2OS_results)
+  list_results <- list(oos_r2 = R2OS_results,
+                       benchmark = FC_hA,
+                       forecast = FC_ECON,
+                       actual = actual,
+                       volatility = FC_vol)
+
+  return(list_results)
 
 }
-
-
-

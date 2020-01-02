@@ -3,13 +3,13 @@
 \docType{data}
 \name{predictors_annual}
 \alias{predictors_annual}
-\title{Nutrient definitions.}
+\title{Goyal & Welch (2008) annual dataset}
 \format{A data frame with 150 observations and 6 variables:}
 \usage{
 predictors_annual
 }
 \description{
-Nutrient definitions.
+Goyal & Welch (2008) annual dataset
 }
 \examples{
 predictors_annual

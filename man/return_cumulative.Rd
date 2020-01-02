@@ -4,10 +4,12 @@
 \alias{return_cumulative}
 \title{Return cumulative}
 \usage{
-return_cumulative(x, h)
+return_cumulative(x, rfree, h)
 }
 \arguments{
 \item{x}{something}
+
+\item{rfree}{something}
 
 \item{h}{something}
 }

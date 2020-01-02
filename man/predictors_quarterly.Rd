@@ -3,13 +3,13 @@
 \docType{data}
 \name{predictors_quarterly}
 \alias{predictors_quarterly}
-\title{Nutrient definitions.}
+\title{Goyal & Welch (2008) quarterly dataset}
 \format{A data frame with 150 observations and 6 variables:}
 \usage{
 predictors_quarterly
 }
 \description{
-Nutrient definitions.
+Goyal & Welch (2008) quarterly dataset
 }
 \examples{
 predictors_quarterly
